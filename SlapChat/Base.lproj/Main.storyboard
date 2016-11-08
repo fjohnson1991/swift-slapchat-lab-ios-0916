@@ -12,7 +12,7 @@
         <!--Table View Controller-->
         <scene sceneID="z6K-tG-zJe">
             <objects>
-                <tableViewController id="XAu-n2-nEF" sceneMemberID="viewController">
+                <tableViewController id="XAu-n2-nEF" customClass="TableViewController" customModule="SlapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BOg-Rj-h6G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9im-4Z-3su" id="Jlf-uV-ayF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="74a-eq-zcV">
@@ -41,11 +41,59 @@
                             <outlet property="delegate" destination="XAu-n2-nEF" id="i8J-vW-7Zx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hPh-B6-6eu"/>
+                    <navigationItem key="navigationItem" id="hPh-B6-6eu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3TX-Jk-qGN">
+                            <connections>
+                                <segue destination="DAh-K5-Ihc" kind="presentation" id="oGi-bp-TKa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejz-2p-aJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957" y="339"/>
+        </scene>
+        <!--Add Message View Controller-->
+        <scene sceneID="f3g-RF-UWY">
+            <objects>
+                <viewController id="DAh-K5-Ihc" customClass="AddMessageViewController" customModule="SlapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kAR-gE-a3j"/>
+                        <viewControllerLayoutGuide type="bottom" id="1D8-BF-JpM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T77-4m-mPN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write text here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMJ-in-0nm">
+                                <rect key="frame" x="129.5" y="318.5" width="116.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W66-s7-otE">
+                                <rect key="frame" x="170.5" y="373.5" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="DAh-K5-Ihc" eventType="touchUpInside" id="LNm-t5-jbH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W66-s7-otE" firstAttribute="centerX" secondItem="T77-4m-mPN" secondAttribute="centerX" id="Arl-yk-anh"/>
+                            <constraint firstItem="bMJ-in-0nm" firstAttribute="centerY" secondItem="T77-4m-mPN" secondAttribute="centerY" id="BcT-r6-uG6"/>
+                            <constraint firstItem="bMJ-in-0nm" firstAttribute="centerX" secondItem="T77-4m-mPN" secondAttribute="centerX" id="rC1-GM-mdL"/>
+                            <constraint firstItem="W66-s7-otE" firstAttribute="top" secondItem="bMJ-in-0nm" secondAttribute="bottom" constant="25" id="u6W-bB-HLs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentTextField" destination="bMJ-in-0nm" id="e7O-rc-eVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3im-ER-orL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GI5-Nd-ee2">
